@@ -5,13 +5,11 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 import io
-import json
 
 # -------------------------------
 # Load Classes (same as training)
 # -------------------------------
 classes = ["No_DR", "Mild", "Moderate", "Severe", "Proliferative_DR"]
-   # Replace with dataset.classes
 
 # -------------------------------
 # Load Model
@@ -30,7 +28,7 @@ model.load_state_dict(torch.load(model_path, map_location="cpu"))
 model.eval()
 
 # -------------------------------
-# Transforms (same as training)
+# Image Transform
 # -------------------------------
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -53,14 +51,23 @@ app.add_middleware(
 )
 
 # -------------------------------
+# Health Check Route
+# -------------------------------
+@app.get("/")
+def home():
+    return {"message": "Backend is running!"}
+
+# -------------------------------
 # Prediction API
 # -------------------------------
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
 
-    # Load image
+    # Load image bytes
     img_bytes = await file.read()
     image = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+
+    # Apply transforms
     img = transform(image).unsqueeze(0)
 
     # Predict
