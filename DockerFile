@@ -1,0 +1,49 @@
+# ======================
+# 1. Base image
+# ======================
+FROM python:3.10-slim AS base
+
+# Install node + required tools
+RUN apt-get update && apt-get install -y \
+    curl \
+    nodejs \
+    npm \
+    && apt-get clean
+
+# ======================
+# 2. Backend Setup (FastAPI + PyTorch)
+# ======================
+WORKDIR /app/backend
+
+COPY diabetic-retinopathy-detector/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend files
+COPY diabetic-retinopathy-detector/ .
+
+# ======================
+# 3. Frontend Setup (Next.js)
+# ======================
+WORKDIR /app/frontend
+
+COPY frontend/package.json .
+COPY frontend/pnpm-lock.yaml* .
+
+COPY frontend/ .
+
+RUN npm install -g pnpm
+RUN pnpm install
+RUN pnpm build
+
+# ======================
+# 4. Run both servers
+# ======================
+WORKDIR /app
+
+EXPOSE 10000
+
+CMD ["bash", "-c", "\
+    uvicorn diabetic-retinopathy-detector.predict_api:app --host 0.0.0.0 --port 10000 & \
+    pnpm --prefix frontend start \
+"]
