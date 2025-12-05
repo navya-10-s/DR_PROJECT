@@ -2,8 +2,5 @@
 __pycache__/
 *.pyc
 
-# Model files
-*.pt
-
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
