@@ -1,0 +1,42 @@
+Epoch 1: Train Loss=214.6315, Accuracy=58.78%
+Validation Loss=39.6418, Accuracy=70.94%
+
+Epoch 2: Train Loss=152.1006, Accuracy=72.01%
+Validation Loss=36.6430, Accuracy=70.94%
+
+Epoch 3: Train Loss=124.1477, Accuracy=77.03%
+Validation Loss=30.0187, Accuracy=78.12%
+
+Epoch 4: Train Loss=100.9610, Accuracy=82.13%
+Validation Loss=28.2830, Accuracy=78.12%
+
+Epoch 5: Train Loss=81.2908, Accuracy=85.68%
+Validation Loss=28.9204, Accuracy=79.18%
+
+Epoch 6: Train Loss=67.4074, Accuracy=88.16%
+Validation Loss=23.2452, Accuracy=84.71%
+
+Epoch 7: Train Loss=54.6530, Accuracy=90.31%
+Validation Loss=18.9141, Accuracy=86.41%
+
+Epoch 8: Train Loss=47.9421, Accuracy=91.82%
+Validation Loss=22.8300, Accuracy=85.35%
+
+Epoch 9: Train Loss=40.5792, Accuracy=93.13%
+Validation Loss=21.6921, Accuracy=87.00%
+
+Epoch 10: Train Loss=35.2684, Accuracy=93.90%
+Validation Loss=19.7428, Accuracy=87.24%
+
+Epoch 11: Train Loss=23.0554, Accuracy=96.19%
+Validation Loss=16.4332, Accuracy=89.76%
+
+Epoch 12: Train Loss=18.6417, Accuracy=96.97%
+Validation Loss=16.1821, Accuracy=90.35%
+
+Epoch 13: Train Loss=17.4069, Accuracy=97.24%
+Validation Loss=16.1699, Accuracy=90.41%
+
+Epoch 14: Train Loss=17.4326, Accuracy=97.28%
+Validation Loss=15.3754, Accuracy=91.00%
+
