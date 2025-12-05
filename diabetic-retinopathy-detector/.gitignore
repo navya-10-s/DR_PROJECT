@@ -3,7 +3,6 @@ __pycache__/
 *.pyc
 
 # Model files
-*.pth
 *.pt
 
 # Jupyter notebook checkpoints
